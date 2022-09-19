@@ -14,5 +14,4 @@ suspend fun  getAll():List<Student>//Querry to getalldata from the database
 fun insertDetails(student:Student) //Insert the details
     @Delete()
     suspend fun DeleteDetails(student: Student)
-
 }
