@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/DatabaseStudents/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/DatabaseStudents/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/DatabaseStudents/app/src/main/res/layout/layout_check.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -13,5 +14,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.11983471074380166" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.example.databasestudents
 
+import android.text.Editable
 import androidx.room.*
 
 @Dao
@@ -9,7 +10,7 @@ interface StudentDao
 suspend fun getByRollNo(search:Int):Student
 
 @Query("SELECT * FROM student_table")
-suspend fun  getAll():List<Student>//Querry to getalldata from the database
+suspend fun  getAll(roolno: Editable?):Student//Querry to getalldata from the database
 @Insert(onConflict =OnConflictStrategy.IGNORE)
 fun insertDetails(student:Student) //Insert the details
     @Delete()

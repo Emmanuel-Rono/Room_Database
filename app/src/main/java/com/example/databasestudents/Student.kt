@@ -11,6 +11,6 @@ data class Student(
     @ColumnInfo(name = "First_name") val FirstName: String?,
     @ColumnInfo(name = "SecondName") val SecondName: String?,
     @PrimaryKey val rollnumber: String,
-    val rollno: Editable
+    val rollno: Int
 )
 
