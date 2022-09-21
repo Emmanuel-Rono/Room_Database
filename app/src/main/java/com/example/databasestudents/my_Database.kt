@@ -1,8 +1,6 @@
 package com.example.databasestudents
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Entity
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
@@ -24,7 +22,7 @@ abstract class My_Database:RoomDatabase()
         @Volatile
         private var INSTANCE: My_Database? = null
 
-        fun getDatabase(context: Context): My_Database {
+        fun getDatabase(context: Home): My_Database {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {

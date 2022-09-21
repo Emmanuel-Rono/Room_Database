@@ -1,5 +1,6 @@
 package com.example.databasestudents
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,14 +15,18 @@ import kotlinx.coroutines.*
 class Home : Fragment() {
 
 
+    lateinit var applicationContext: Context
     lateinit var data_base:My_Database
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        data_base= My_Database.getDatabase(this)
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+
         view?.findViewById<Button>(R.id.save_Button)?.setOnClickListener {
             save_data()
         }
@@ -35,21 +40,19 @@ class Home : Fragment() {
 
 
     private  fun lookupdata() {
-        val roolno= view?.findViewById<EditText>(R.id.search_rollno)?.text
-        if (roolno != null) {
-            if(roolno.isNotEmpty())
-            {
-                var student:Student
-                GlobalScope.launch(Dispatchers.IO) {
-                    student = data_base.studentdao().getAll(roolno)
-                    display(student)
-                }
-
+        val roolno= view?.findViewById<EditText>(R.id.search_rollno)?.text.toString()
+        if(roolno.isNotEmpty())
+        {
+            var student:Student
+            GlobalScope.launch(Dispatchers.IO) {
+                student = data_base.studentdao().getByRollNo(roolno.toInt())
+                display(student)
             }
+
         }
     }
 
-    private suspend fun display(student: Student) {
+    private suspend fun display(student:Student) {
         withContext(Dispatchers.Main){
             view?.findViewById<TextView>(R.id.tvfirstname)?.text=student.FirstName
              view?.findViewById<TextView>(R.id.tvsecondname)?.text=student.SecondName
